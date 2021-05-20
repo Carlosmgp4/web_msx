@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+{%block tittle%}
+    <title>Juegos</title>
+{%endblock%}
+
+{%block titulo%}Juegos MSX{%endblock%}
+
+{%block contenido%}
+<form action="/listajuegos" method="POST">
+    Nombre del juego: <input type="text" name="nombrebus"/>
+    <input type="submit" value="Enviar"/>
+    <br><br>
+</form>
+{%endblock%}
