@@ -19,8 +19,16 @@ def listajuegos():
         bus=request.form["nombrebus"]
     except:
         abort(404)
+
+    nom = []
+    desa = []
+    id = []
     for w in datos:
-        if bus in w.get("nombre"):
-            return render_template("listajuegos.html")
+        if bus == str(w.get("nombre"))[:len(bus)]:
+            nom.append(w.get("nombre"))
+            desa.append(w.get("desarrollador"))
+            id.append(w.get("id"))
+
+    return render_template("listajuegos.html",nombres=nom,desarrolladores=desa,id=id)
 
 app.run("0.0.0.0",5000,debug=True)

@@ -6,5 +6,23 @@
 {%block titulo%}Juego: {{busqueda}}{%endblock%}
 
 {%block contenido%}
-    <p>hola</p>
+    <div id="main-container">
+        <table>
+            <tr>
+                {% for n in nombres -%}
+                    <td>{{n}}</td>
+                {% endfor -%}
+            </tr>
+            <tr>
+                {% for n in desarrolladores -%}
+                    <td>{{n}}</td>
+                {% endfor -%}
+            </tr>
+            <tr>
+                {% for n in id -%}
+                    <td>{{n}}</td>
+                {% endfor -%}
+            </tr>
+        </table>
+    </div>
 {%endblock%}
