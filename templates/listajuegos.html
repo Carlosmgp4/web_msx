@@ -1,28 +1,18 @@
 {%extends "base.html" %}
 {%block tittle%}
-    <title>{{busqueda}}</title>
+    <title>Encontrados MSX</title>
 {%endblock%}
 
-{%block titulo%}Juego: {{busqueda}}{%endblock%}
+{%block titulo%}Busqueda: {{busqueda}}{%endblock%}
 
 {%block contenido%}
-    <div id="main-container">
-        <table>
+    <table>
+        {% for l in lista -%}
             <tr>
-                {% for n in nombres -%}
-                    <td>{{n}}</td>
-                {% endfor -%}
+                <td>{{l.nombre}}</td>
+                <td>{{l.desarrollador}}</td>
+                <td><a href="/juego/{{l.id}}">Detalles</a></td>
             </tr>
-            <tr>
-                {% for n in desarrolladores -%}
-                    <td>{{n}}</td>
-                {% endfor -%}
-            </tr>
-            <tr>
-                {% for n in id -%}
-                    <td>{{n}}</td>
-                {% endfor -%}
-            </tr>
-        </table>
-    </div>
+        {% endfor -%}
+    </table>
 {%endblock%}

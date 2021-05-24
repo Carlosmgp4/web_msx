@@ -20,15 +20,31 @@ def listajuegos():
     except:
         abort(404)
 
-    nom = []
-    desa = []
-    id = []
-    for w in datos:
-        if bus == str(w.get("nombre"))[:len(bus)]:
-            nom.append(w.get("nombre"))
-            desa.append(w.get("desarrollador"))
-            id.append(w.get("id"))
+    lista = []
+    if bus:
+        for w in datos:
+            if bus == str(w.get("nombre"))[:len(bus)]:
+                lista.append(w)
+    else:
+        for d in datos:
+            lista.append(d)
 
-    return render_template("listajuegos.html",nombres=nom,desarrolladores=desa,id=id)
+    return render_template("listajuegos.html",lista=lista,busqueda=bus)
+
+@app.route("/juego/<identificador>",methods=["GET","POST"])
+def infojuegos(identificador):
+    identificador=int(identificador)
+    iden=[]
+    lista=[]
+    for i in datos:
+        iden.append(i.get("id"))
+    if identificador in iden:
+        for var in datos:
+            if var.get("id") == identificador:
+                lista.append(var)
+    else:
+        abort(404)
+    
+    return render_template("detalles.html",lista=lista)
 
 app.run("0.0.0.0",5000,debug=True)

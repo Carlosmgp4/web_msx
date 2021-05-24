@@ -1,0 +1,22 @@
+{%extends "base.html" %}
+{%block tittle%}
+    <title>juego</title>
+{%endblock%}
+
+{%block titulo%}
+    {% for var in lista -%}
+        {{var.nombre}}
+    {% endfor %}
+{%endblock%}
+
+{%block contenido%}
+    {% for l in lista -%}
+        <h2>{{l.nombre}}</h2>
+        <br>
+        <p>Sistema: <strong>{{l.sistema}}</strong></p>
+        <p>Distribuidor: <strong>{{l.distribuidor}}</strong></p>
+        <p>Desarrollador: <strong>{{l.desarrollador}}</strong></p>
+        <p>Categoría: <strong>{{l.categoria}}</strong></p>
+        <p>Año de lanzamiento: <strong>{{l.año}}</strong></p>
+    {% endfor -%}
+{%endblock%}

@@ -15,7 +15,9 @@
 
 <body>
 	<header>
-		<div id="logo">{%block titulo%}{%endblock%}</div>
+		<div id="logo">
+			{%block titulo%}{%endblock%}
+		</div>
 		<nav>  
 			<ul>
 				<li><a href="/">Home</a>
@@ -29,9 +31,7 @@
 		<strong>Demonstration of a simple page layout using HTML5 tags: header, nav, section, main, article, aside, footer, address.</strong>
 	</section>
 	<section id="pageContent">
-		<main role="main">
 			{% block contenido %}{%endblock%}
-		</main>
 	</section>
 	<footer>
 		<p>&copy; You can copy, edit and publish this template but please leave a link to our website | <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
