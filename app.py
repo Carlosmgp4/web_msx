@@ -1,3 +1,4 @@
+import os
 from flask import Flask, url_for, render_template,request, abort
 import json
 app = Flask(__name__)
@@ -47,4 +48,5 @@ def infojuegos(identificador):
     
     return render_template("detalles.html",lista=lista)
 
-app.run("0.0.0.0",5000,debug=True)
+port=os.environ["PORT"]
+app.run("0.0.0.0",int(port),debug=False)
